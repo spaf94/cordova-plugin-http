@@ -1,2 +1,35 @@
-<?xml version='1.0' encoding='utf-8'?>
-<plugin id="cordova-plugin-sfhttp" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android"><name>SFHttpPlugin</name><js-module name="SFHttpPlugin" src="www/SFHttpPlugin.js"><clobbers target="cordova.plugins.SFHttpPlugin" /></js-module><platform name="ios"><config-file parent="/*" target="config.xml"><feature name="SFHttpPlugin"><param name="ios-package" value="SFHttpPlugin" /></feature></config-file><source-file src="src/ios/SFHttpPlugin.m" /></platform><platform name="android"><config-file parent="/*" target="res/xml/config.xml"><feature name="SFHttpPlugin"><param name="android-package" value="cordova-plugin-sfhttp.SFHttpPlugin" /></feature></config-file><config-file parent="/*" target="AndroidManifest.xml"></config-file><source-file src="src/android/SFHttpPlugin.java" target-dir="src/cordova-plugin-sfhttp/SFHttpPlugin" /></platform></plugin>
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin id="cordova-plugin-sfhttp" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <name>SFHttpPlugin</name>
+
+  <engines>
+    <engine name="cordova" version=">=3.4.0"/>
+  </engines>
+
+  <js-module name="SFHttpPlugin" src="www/SFHttpPlugin.js">
+    <clobbers target="sfHttpPlugin" />
+  </js-module>
+
+  <platform name="ios">
+    <config-file parent="/*" target="config.xml">
+      <feature name="SFHttpPlugin">
+        <param name="ios-package" value="SFHttpPlugin" />
+      </feature>
+    </config-file>
+    <source-file src="src/ios/SFHttpPlugin.m" />
+  </platform>
+
+  <platform name="android">
+
+    <config-file parent="/*" target="res/xml/config.xml">
+      <feature name="SFHttpPlugin">
+        <param name="android-package" value="cordova.plugin.sfhttp.SFHttpPlugin" />
+      </feature>
+    </config-file>
+
+    <source-file src="src/android/SFHttpPlugin.java" target-dir="src/cordova-plugin-sfhttp/SFHttpPlugin" />
+
+  </platform>
+
+</plugin>
