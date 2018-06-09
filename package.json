@@ -1,9 +1,9 @@
 {
-  "name": "cordova-plugin-http",
+  "name": "cordova-plugin-sfhttp",
   "version": "0.0.1",
   "description": "Cordova plugin to do http requests",
   "cordova": {
-    "id": "cordova-plugin-http",
+    "id": "cordova-plugin-sfhttp",
     "platforms": []
   },
   "repository": {
