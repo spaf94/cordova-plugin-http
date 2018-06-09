@@ -1,0 +1,22 @@
+{
+  "name": "cordova-plugin-sfhttp",
+  "version": "0.0.1",
+  "description": "Clr",
+  "cordova": {
+    "id": "cordova-plugin-sfhttp",
+    "platforms": []
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spaf94/cordova-plugin-http.git"
+  },
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "author": "Simão Ferreira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spaf94/cordova-plugin-http/issues"
+  },
+  "homepage": "https://github.com/spaf94/cordova-plugin-http#readme"
+}
