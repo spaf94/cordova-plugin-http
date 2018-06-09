@@ -1,23 +1,36 @@
 /********* SFHttpPlugin.m Cordova Plugin Implementation *******/
 
-#import <Cordova/CDV.h>
-
-@interface SFHttpPlugin : CDVPlugin {
-  // Member variables go here.
-}
-
-- (void)coolMethod:(CDVInvokedUrlCommand*)command;
-@end
+#import "SFHttpPlugin.h"
 
 @implementation SFHttpPlugin
 
-- (void)coolMethod:(CDVInvokedUrlCommand*)command
+NSString *baseAddress = @"";
+NSInteger *connectTimeout = 0;
+NSInteger *readTimeout = 0;
+
+- (void)setBaseAddress:(CDVInvokedUrlCommand*)command
 {
     CDVPluginResult* pluginResult = nil;
-    NSString* echo = [command.arguments objectAtIndex:0];
+    NSString* base_Address = [command.arguments objectAtIndex:0];
 
-    if (echo != nil && [echo length] > 0) {
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:echo];
+    if (base_Address != nil && [base_Address length] > 0) {
+    	baseAddress = base_Address;
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:baseAddress];
+    } else {
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
+    }
+
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
+- (void)setTimeouts:(CDVInvokedUrlCommand*)command
+{
+    CDVPluginResult* pluginResult = nil;
+    NSString* base_Address = [command.arguments objectAtIndex:0];
+
+    if (base_Address != nil && [base_Address length] > 0) {
+    	baseAddress = base_Address;
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:baseAddress];
     } else {
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
     }

@@ -2,27 +2,13 @@
 
 #import <Cordova/CDV.h>
 
-@interface SFHttpPlugin : CDVPlugin {
-  // Member variables go here.
-}
+@interface SFHttpPlugin : CDVPlugin 
 
-- (void)coolMethod:(CDVInvokedUrlCommand*)command;
-@end
+- (void)setBaseAddress:(CDVInvokedUrlCommand*)command;
+- (void)setTimeouts:(CDVInvokedUrlCommand*)command;
 
-@implementation SFHttpPlugin
-
-- (void)coolMethod:(CDVInvokedUrlCommand*)command
-{
-    CDVPluginResult* pluginResult = nil;
-    NSString* echo = [command.arguments objectAtIndex:0];
-
-    if (echo != nil && [echo length] > 0) {
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:echo];
-    } else {
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
-    }
-
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-}
+extern NSString *baseAddress;
+extern NSInteger *connectTimeout;
+extern NSInteger *readTimeout;
 
 @end
