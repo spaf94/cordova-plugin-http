@@ -38,7 +38,7 @@ public class SFHttp {
     public void sendGet(String endpoint, String jsonHeaders){
         String urlString = this.baseAddress + endpoint;
 
-        SFHttpPostTask task = new SFHttpPostTask(){
+        SFHttpGetTask task = new SFHttpGetTask(){
             @Override
             protected void onPostExecute(SFHttpResult sfHttpResult) {
                 super.onPostExecute(sfHttpResult);

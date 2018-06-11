@@ -27,7 +27,9 @@
         <param name="android-package" value="cordova.plugin.sfhttp.SFHttpPlugin" />
       </feature>
     </config-file>
-    <source-file src="src/android/SFHttpPlugin.java" target-dir="src/cordova-plugin-sfhttp/SFHttpPlugin" />
+    <source-file src="src/android/SFHttpPlugin.java" target-dir="src/cordova/plugin/sfhttp/SFHttpPlugin" />
+    <framework src="src/android/sfhttp.gradle" custom="true" type="gradleReference" />
+    <resource-file src="src/android/libs/sfhttplib.aar" target="libs/sfhttplib.aar" />
   </platform>
 
 </plugin>
