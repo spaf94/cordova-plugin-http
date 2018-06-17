@@ -23,6 +23,53 @@ NSInteger *readTimeout = 0;
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
+
+- (void)sendGet:(CDVInvokedUrlCommand*)command
+{
+    //CDVPluginResult* pluginResult = nil;
+    NSString* endPoint = [command.arguments objectAtIndex:0];
+    NSString* jsonHeaders = [command.arguments objectAtIndex:1];
+
+    endPoint = [NSString stringWithFormat:@"%@%@", baseAddress, endPoint];
+
+    NSData *data = [jsonHeaders dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error = nil;
+    id headers = [NSJSONSerialization
+                    JSONObjectWithData:data
+                    options:0
+                    error:&error];
+
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:endPoint]];
+    [request setHTTPMethod:@"GET"];
+
+    for (NSString* key in headers) {
+        id value = headers[key];
+        [request setValue:value forHTTPHeaderField:key];
+    }
+
+     NSURLSession *session = [NSURLSession sharedSession];
+     NSURLSessionDataTask *task = [session dataTaskWithRequest:request
+                                             completionHandler:
+                                   ^(NSData *data, NSURLResponse *response, NSError *error) {
+                                        CDVPluginResult* pluginResult = nil;
+                                       if (data == nil) {
+                                            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
+                                       } else {
+                                           //NSString *dataString = [data base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithCarriageReturn];
+                                           //NSString *dataString = [NSString stringWithFormat:@"%@", data];
+                                           NSString *dataString =[[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+                                           NSLog(@"%@", dataString);
+                                           pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:dataString];
+                                       }
+                                       [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+                                   }];
+     [task resume];    
+     //pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"OK"];
+     //[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
+
 - (void)setTimeouts:(CDVInvokedUrlCommand*)command
 {
     CDVPluginResult* pluginResult = nil;
@@ -32,7 +79,7 @@ NSInteger *readTimeout = 0;
     NSInteger read_timeout = [str_read_timeout intValue];
 
     if (connect_timeout >= 0 && read_timeout >= 0) {
-    	connectTimeout = connect_timeout;
+        connectTimeout = connect_timeout;
         readTimeout = read_timeout;
 
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"OK"];

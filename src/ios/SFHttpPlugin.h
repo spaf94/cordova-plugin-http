@@ -6,6 +6,7 @@
 
 - (void)setBaseAddress:(CDVInvokedUrlCommand*)command;
 - (void)setTimeouts:(CDVInvokedUrlCommand*)command;
+- (void)sendGet:(CDVInvokedUrlCommand*)command;
 
 extern NSString *baseAddress;
 extern NSInteger *connectTimeout;
