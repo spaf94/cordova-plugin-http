@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-sfhttp",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Cordova plugin to do http requests",
   "cordova": {
     "id": "cordova-plugin-sfhttp",
