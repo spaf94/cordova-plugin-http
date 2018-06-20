@@ -5,6 +5,9 @@ Cordova plugin to do http requests in your cordova mobile app.
 ## How to install
 ` cordova plugin add https://github.com/spaf94/cordova-plugin-http `
 
+## How to remove
+` cordova plugin remove cordova-plugin-sfhttp `
+
 ## How to use
 #### Set base address 
 ```javascript
