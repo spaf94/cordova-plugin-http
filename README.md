@@ -69,3 +69,6 @@ function sendPost(){
 
 ## Issues
 If you find any bugs, please submit an [issue](https://github.com/spaf94/cordova-plugin-http/issues/new/).
+
+## Releases
+Read the [Releases](https://github.com/spaf94/cordova-plugin-http/releases) page to check new versions and news.
