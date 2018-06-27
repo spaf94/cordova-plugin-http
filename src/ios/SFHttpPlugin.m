@@ -62,7 +62,7 @@ NSInteger *readTimeout = 0;
     [request setHTTPMethod:@"GET"];
 
     for (NSString* key in headers) {
-        id value = headers[key];
+        NSString* value = [[headers objectForKey:key] stringValue];
         [request setValue:value forHTTPHeaderField:key];
     }
 
@@ -103,7 +103,7 @@ NSInteger *readTimeout = 0;
     [request setHTTPMethod:@"POST"];
 
     for (NSString* key in headers) {
-        id value = headers[key];
+        NSString* value = [[headers objectForKey:key] stringValue];
         [request setValue:value forHTTPHeaderField:key];
     }
 
